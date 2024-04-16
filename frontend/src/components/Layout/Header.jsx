@@ -11,11 +11,13 @@ import {
 } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openProductList, setOpenProductList] = useState(false);
   const [openCartList, setOpenCartList] = useState(false);
+  const [openSearchPopUp, setOpenSearchPopUp] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -45,7 +47,10 @@ const Header = () => {
             </Link>
             <div class="flex items-center lg:order-2">
               <div className="flex gap-[0.8rem] items-center">
-                <div className="flex gap-[0.8rem] items-center">
+                <div
+                  onClick={() => setOpenSearchPopUp(true)}
+                  className="flex gap-[0.8rem] items-center"
+                >
                   <div className="flex items-center justify-center w-[32px] h-[32px] rounded-[50%] border-[1px] border-solid border-[#7f8080] cursor-pointer text-[#444545] transition-all">
                     <IoIosSearch className="text-[20px] hover:text-[#f66315]" />
                   </div>
@@ -61,7 +66,7 @@ const Header = () => {
                   </div>
                   <div>
                     <a
-                      href="/trang-ca-nhan"
+                      href="/tai-khoan"
                       className="flex items-center justify-center w-[32px] h-[32px] rounded-[50%] border-[1px] border-solid border-[#7f8080] cursor-pointer text-[#444545] transition-all"
                     >
                       <FaUser className="text-[16px] hover:text-[#f66315]" />
@@ -303,7 +308,7 @@ const Header = () => {
                               </li>
                               <li className="lg:w-full lg:py-[4px] lg:pr-[4px] lg:pl-[8px] lg:float-left">
                                 <a
-                                  href="/"
+                                  href="/vot-cau-long"
                                   className="text-[16px] mb-0 text-[#444545] hover:text-[#f66315] font-[600] block leading-normal  w-full pb-[5px] no-underline"
                                 >
                                   Vợt cầu lông
@@ -311,7 +316,7 @@ const Header = () => {
                               </li>
                               <li className="lg:w-full lg:py-[4px] lg:pr-[4px] lg:pl-[8px] lg:float-left">
                                 <a
-                                  href="/"
+                                  href="/giay-cau-long"
                                   className="text-[16px] mb-0 text-[#444545] hover:text-[#f66315] font-[600] block leading-normal  w-full pb-[5px] no-underline"
                                 >
                                   Giày cầu lông
@@ -319,15 +324,15 @@ const Header = () => {
                               </li>
                               <li className="lg:w-full lg:py-[4px] lg:pr-[4px] lg:pl-[8px] lg:float-left">
                                 <a
-                                  href="/"
+                                  href="/quan-ao-cau-long"
                                   className="text-[16px] mb-0 text-[#444545] hover:text-[#f66315] font-[600] block leading-normal  w-full pb-[5px] no-underline"
                                 >
-                                  Túi vợt cầu lông
+                                  Quần áo cầu lông
                                 </a>
                               </li>
                               <li className="lg:w-full lg:py-[4px] lg:pr-[4px] lg:pl-[8px] lg:float-left">
                                 <a
-                                  href="/"
+                                  href="/bao-vot-cau-long"
                                   className="text-[16px] mb-0 text-[#444545] hover:text-[#f66315] font-[600] block leading-normal  w-full pb-[5px] no-underline"
                                 >
                                   Balo cầu lông
@@ -335,7 +340,7 @@ const Header = () => {
                               </li>
                               <li className="lg:w-full lg:pt-[5px] lg:pr-[4px] lg:pl-[8px] lg:float-left">
                                 <a
-                                  href="/"
+                                  href="/phu-kien-cau-long"
                                   className="md:block text-[16px] mb-0 text-[#444545] hover:text-[#f66315] font-[600] block leading-normal w-full pb-[5px] no-underline"
                                 >
                                   Phụ kiện cầu lông
@@ -385,6 +390,54 @@ const Header = () => {
           </div>
         </nav>
       </header>
+      {openSearchPopUp === true ? (
+        <div className="fixed left-0 top-0 bottom-0 right-0 z-999">
+          <div className="h-full opacity-100 absolute left-0 bottom-0 right-0 top-0 z-1 bg-0.8"></div>
+          <div className="opacity-100 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-10 w-[700px] max-w-[95%]">
+            <div className="rounded-[6px]">
+              <div className="overflow-y-auto min-h-[28vh] max-h-[80vh]">
+                <div className="bg-[#fff] w-full min-h-[28vh] relative pt-[48px] px-[20px] pb-[20px]">
+                  <div className="flex flex-col gap-[12px]">
+                    <p className="text-center text-[40px] font-[700] text-[#031230]">
+                      Bạn cần tìm gì
+                    </p>
+                    {/* <form action=""> */}
+                    <div className="flex rounded-[54px] border-[1px] border-solid border-[#c9c9c9] pl-[20px]">
+                      <div className="flex shrink grow mx-[-12px] items-center">
+                        <div className="flex px-3 shrink grow">
+                          <input
+                            type="search"
+                            className="w-full px-[12px] border-none text-[14px] focus:outline-none  focus:ring-0 "
+                            placeholder="Nhập từ khóa"
+                          />
+                        </div>
+                      </div>
+                      <a href="/ket-qua-tim-kiem">
+                        <button
+                          type="submit"
+                          className="text-[#fff] text-[16px] hover:text-[#000] hover:bg-[#fff] font-[700] cursor-pointer relative duration-300 ease-in-out bg-[#f66315] w-fit mx-auto rounded-[40px] flex items-center justify-center border border-solid border-[#f66315]"
+                        >
+                          <div className="flex items-center justify-center px-[20px] py-[10px] gap-[6px]">
+                            <IoIosSearch className="text-[18px]" />
+                            <span>Tìm kiếm</span>
+                          </div>
+                        </button>
+                      </a>
+                    </div>
+                    {/* </form> */}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute top-[15px] right-[15px] cursor-pointer duration-500 ease-in-out w-[30px] h-[30px] border border-solid border-[#f66315] flex items-center justify-center text-[#f66315] bg-[#fff] hover:text-[#fff] hover:bg-[#ff0000ea]">
+              <IoMdClose
+                className="text-[20px]"
+                onClick={() => setOpenSearchPopUp(false)}
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 };

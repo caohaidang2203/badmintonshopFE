@@ -15,6 +15,9 @@ module.exports = {
         "1300x": "1300px",
         "400px": "400px",
       },
+      colors: {
+        0.8: "rgba(0, 0, 0, .8)",
+      },
       backgroundImage: {
         1: "linear-gradient(135deg,rgba(255,255,255,0.85),rgba(255,255,255,0.8))",
         2: "radial-gradient(50% 50% at 50% 50%,rgba(246,99,21,0.2) 0%,rgba(246,99,21,0) 100%)",
@@ -29,6 +32,7 @@ module.exports = {
       zIndex: {
         1: 1,
         "-1": -1,
+        999: 999,
       },
     },
     boxShadow: {
