@@ -15,7 +15,7 @@ const ContactPage = () => {
             <div className="relative pt-[36%]">
               <div className="absolute left-0 top-0 right-0 bottom-0 z-1">
                 <img
-                  className="w-full h-full max-w-full"
+                  className="w-full h-full max-w-full object-cover"
                   src="https://static.vecteezy.com/system/resources/previews/006/614/441/non_2x/cream-white-badminton-shuttlecock-and-racket-with-neon-light-shading-on-green-floor-in-indoor-badminton-court-blurred-badminton-background-copy-space-free-photo.jpg"
                   alt=""
                 />

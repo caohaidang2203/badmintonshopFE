@@ -20,6 +20,7 @@ import BadmintonBalosPage from "../pages/BadmintonBalosPage.jsx";
 import BadmintonAccessoriesPage from "../pages/BadmintonAccessoriesPage.jsx";
 import NewsPage from "../pages/NewsPage.jsx";
 import SearchResultPage from "../pages/SearchResultPage.jsx";
+import ChatUserPage from "../pages/ChatUserPage.jsx";
 
 export {
   HomePage,
@@ -44,4 +45,5 @@ export {
   BadmintonAccessoriesPage,
   NewsPage,
   SearchResultPage,
+  ChatUserPage,
 };
